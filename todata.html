@@ -1,0 +1,126 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>convert file to base64</title>
+
+    <style>
+      * {
+        font-family: Helvetica, sans-serif;
+        font-size: 1rem;
+      }
+
+      h1 {
+        color: #744fc6;
+        font-size: 2rem;
+      }
+
+      h1::after {
+        content: ":";
+      }
+
+      form {
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+        width: 90vw;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .btn {
+        padding: 1rem;
+        border: none;
+        outline: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      input[type="file"] ~ label,
+      .convert {
+        margin: 10 0;
+        width: 100%;
+        background-color: blueviolet;
+        color: white;
+        position: relative;
+      }
+
+      input[type="file"] ~ label::after {
+        content: attr(files);
+        background-color: indigo;
+        color: white;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(5px, -5px);
+        width: 15px;
+        height: 15px;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+      }
+
+      .convert {
+        background-color: #e56399;
+      }
+
+      #preview {
+        width: calc(100vw - 50px);
+      }
+
+      #again,
+      #copy {
+        background-color: #de6e4b;
+        color: white;
+        display: none;
+        margin-top: 1.5rem;
+      }
+
+      #again {
+        float: left;
+        margin-right: 1rem;
+      }
+
+      a {
+        color: indigo;
+        font-style: normal;
+        text-decoration: none;
+        position: relative;
+        top: 0.5rem;
+      }
+
+      a::after {
+        content: "(visit)";
+        font-size: 0.7rem;
+        color: orangered;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>convert files to base64</h1>
+    <form action="javascript:convert()">
+      <input type="file" id="selectFile" />
+      <label for="selectFile" class="btn" role="button" files="0"
+        >open file</label
+      >
+      <button class="convert btn">convert</button>
+    </form>
+
+    <button class="btn" id="again">convert another file</button>
+
+    <button class="btn" id="copy">copy file url</button>
+
+    <a href="github.com/shayanfpg9">
+      <i>by: shayan falaki </i>
+    </a>
+    <script src="todata.js"></script>
+  </body>
+</html>
